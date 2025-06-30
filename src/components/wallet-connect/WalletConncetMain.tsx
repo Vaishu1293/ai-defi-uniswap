@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import ThemeChanger from "../home/ThemeChanger";
@@ -9,51 +9,29 @@ import CounterTwo from "@/utils/CounterTwo";
 
 const WalletConnectMain = () => {
   useFlashlightAnimation();
-  const [timeRange, setTimeRange] = useState<"day" | "month" | "year">("month");
-  
-  // Data based on time range
-    const getDataForTimeRange = (range: "day" | "month" | "year") => {
-        switch (range) {
-            case "day":
-                return [
-                    { x: new Date("2023-12-23").getTime(), y: 350 },
-                    { x: new Date("2023-12-24").getTime(), y: 400 },
-                    { x: new Date("2023-12-25").getTime(), y: 450 },
-                    { x: new Date("2023-12-26").getTime(), y: 500 },
-                ];
-            case "month":
-                return [
-                    { x: new Date("2023-01-01").getTime(), y: 350 },
-                    { x: new Date("2023-02-01").getTime(), y: 400 },
-                    { x: new Date("2023-03-01").getTime(), y: 450 },
-                    { x: new Date("2023-04-01").getTime(), y: 500 },
-                    { x: new Date("2023-05-01").getTime(), y: 550 },
-                    { x: new Date("2023-06-01").getTime(), y: 600 },
-                    { x: new Date("2023-07-01").getTime(), y: 650 },
-                    { x: new Date("2023-08-01").getTime(), y: 700 },
-                    { x: new Date("2023-09-01").getTime(), y: 750 },
-                    { x: new Date("2023-10-01").getTime(), y: 800 },
-                    { x: new Date("2023-11-01").getTime(), y: 850 },
-                    { x: new Date("2023-12-01").getTime(), y: 900 },
-                ];
-            case "year":
-                return [
-                    { x: new Date("2023-01-01").getTime(), y: 350 },
-                    { x: new Date("2023-06-01").getTime(), y: 600 },
-                    { x: new Date("2023-12-01").getTime(), y: 900 },
-                ];
-            default:
-                return [];
-        }
-    };
+  const [marketRange, setMarketRange] = useState<"Market" | "+1%" | "+5%" | "+10%">("Market");
+  const [series, setSeries] = useState<number>(2487.45);
 
-    // Get the series data based on the selected time range
-    const series = [
-        {
-            name: "Visitors",
-            data: getDataForTimeRange(timeRange),
-        },
-    ];
+  const getDataForMarketRange = (range: "Market" | "+1%" | "+5%" | "+10%"): number => {
+    switch (range) {
+      case "Market":
+        return 2487.45;
+      case "+1%":
+        return 2487.45 * 1.01;
+      case "+5%":
+        return 2487.45 * 1.05;
+      case "+10%":
+        return 2487.45 * 1.10;
+      default:
+        return 2487.45;
+    }
+  };
+
+  // Update series when marketRange changes
+  useEffect(() => {
+    setSeries(getDataForMarketRange(marketRange));
+  }, [marketRange]);
+
   return (
     <main>
       <ThemeChanger />
@@ -117,7 +95,7 @@ const WalletConnectMain = () => {
                     role="tabpanel"
                     aria-labelledby="nav-bid-tab"
                   >
-                   <div className="art-info-wrapper light-effect-top">
+                    <div className="art-info-wrapper light-effect-top">
                       <div className="dashboard-banner-text">
                         <div className="dashboard-banner-text-wrap">
                           <h1>When 1 ETH is worth</h1>
@@ -125,29 +103,36 @@ const WalletConnectMain = () => {
                         <div className="dashboard-banner-box">
                           <div className="dashboard-banner-box-item">
                             <span>USDC</span>
-                            <h4>2436.9</h4>
+                            <h4>{series.toFixed(2)}</h4>
                           </div>
                           <div className="dashboard-banner-box-item">
-                            <div className="time-range-buttons d-flex gap-2">
-                        <button
-                            className={` ${timeRange === "day" ? "border-btn border-btn-sm active" : "border-btn border-btn-sm"}`}
-                            onClick={() => setTimeRange("day")}
-                        >
-                            Day
-                        </button>
-                        <button
-                            className={`btn ${timeRange === "month" ? "border-btn border-btn-sm active" : "border-btn border-btn-sm"}`}
-                            onClick={() => setTimeRange("month")}
-                        >
-                            Month
-                        </button>
-                        <button
-                            className={`btn ${timeRange === "year" ? "border-btn border-btn-sm active" : "border-btn border-btn-sm"}`}
-                            onClick={() => setTimeRange("year")}
-                        >
-                            Year
-                        </button>
-                    </div>
+                            <div className="time-range-buttons d-flex gap-2 mt-3">
+                              <button
+                                className={` ${marketRange === "Market" ? "border-btn border-btn-sm active" : "border-btn border-btn-sm"}`}
+                                onClick={() => setMarketRange("Market")}
+                              >
+                                Market
+                              </button>
+                              <button
+                                className={`btn ${marketRange === "+1%" ? "border-btn border-btn-sm active" : "border-btn border-btn-sm"}`}
+                                onClick={() => setMarketRange("+1%")}
+                              >
+                                +1%
+                              </button>
+                              <button
+                                className={`btn ${marketRange === "+5%" ? "border-btn border-btn-sm active" : "border-btn border-btn-sm"}`}
+                                onClick={() => setMarketRange("+5%")}
+                              >
+                                +5%
+                              </button>
+                              <button
+                                className={`btn ${marketRange === "+10%" ? "border-btn border-btn-sm active" : "border-btn border-btn-sm"}`}
+                                onClick={() => setMarketRange("+10%")}
+                              >
+                                +10%
+                              </button>
+                            </div>
+
                           </div>
                         </div>
                         <div className="dashboard-banner-button">
