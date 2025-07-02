@@ -6,11 +6,15 @@ import ThemeChanger from "../home/ThemeChanger";
 import useFlashlightAnimation from "@/hooks/useFlashlightAnimation";
 import prifile1 from "../../../public/assets/img/profile/profile37.png";
 import CounterTwo from "@/utils/CounterTwo";
+import NiceSelect from "@/elements/niceSelect/NiceSelect";
+import { crypto } from "@/data/nice-select-data";
 
 const WalletConnectMain = () => {
   useFlashlightAnimation();
   const [marketRange, setMarketRange] = useState<"Market" | "+1%" | "+5%" | "+10%">("Market");
+  const [dateRange, setDateRange] = useState<"1 Day" | "1 Week" | "1 Month" | "1 Year">("1 Day");
   const [series, setSeries] = useState<number>(2487.45);
+  const selectHandler = () => { };
 
   const getDataForMarketRange = (range: "Market" | "+1%" | "+5%" | "+10%"): number => {
     switch (range) {
@@ -31,6 +35,21 @@ const WalletConnectMain = () => {
   useEffect(() => {
     setSeries(getDataForMarketRange(marketRange));
   }, [marketRange]);
+
+  const getDateRange = (range: "1 Day" | "1 Week" | "1 Month" | "1 Year"): string => {
+    switch (range) {
+      case "1 Day":
+        return "1 day";
+      case "1 Week":
+        return "1 week";
+      case "1 Month":
+        return "1 month";
+      case "1 Year":
+        return "1 year";
+      default:
+        return "1 day";
+    }
+  };
 
   return (
     <main>
@@ -135,12 +154,83 @@ const WalletConnectMain = () => {
 
                           </div>
                         </div>
+                        <div className="dashboard-banner-box">
+                          <div className="dashboard-banner-box-item">
+                            <span>SELL</span>
+                            <form action="#">
+                              <div className="">
+                                <NiceSelect
+                                  options={crypto}
+                                  defaultCurrent={0}
+                                  onChange={selectHandler}
+                                  name="tc-select"
+                                  className="top-seller-select"
+                                />
+                              </div>
+                            </form>
+                          </div>
+                          <div className="dashboard-banner-box-item">
+                            <div className="single-input-unit mt-4">
+                              <input type="text" defaultValue="0" autoComplete='true' placeholder="0" />
+                            </div>
+                          </div>
+                          <div className="dashboard-banner-box-item ms-4">
+                            <span>BUY</span>
+                            <form action="#">
+                              <div className="">
+                                <NiceSelect
+                                  options={crypto}
+                                  defaultCurrent={0}
+                                  onChange={selectHandler}
+                                  name="tc-select"
+                                  className="top-seller-select"
+                                />
+                              </div>
+                            </form>
+                          </div>
+                          <div className="dashboard-banner-box-item ms-4">
+                            <div className="single-input-unit mt-4">
+                              <input type="text" defaultValue="0" autoComplete='true' placeholder="0" />
+                            </div>
+                          </div>
+                        </div>
+                        <div className="dashboard-banner-box">
+                          <div className="dashboard-banner-box-item">
+                            <h4 className="mt-4">Expiry</h4>
+                          </div>
+                          <div className="dashboard-banner-box-item">
+                            <div className="time-range-buttons d-flex gap-2 mt-3">
+                              <button
+                                className={` ${dateRange === "1 Day" ? "border-btn border-btn-sm active" : "border-btn border-btn-sm"}`}
+                                onClick={() => setDateRange("1 Day")}
+                              >
+                                1 Day
+                              </button>
+                              <button
+                                className={`btn ${dateRange === "1 Week" ? "border-btn border-btn-sm active" : "border-btn border-btn-sm"}`}
+                                onClick={() => setDateRange("1 Week")}
+                              >
+                                1 Week
+                              </button>
+                              <button
+                                className={`btn ${dateRange === "1 Month" ? "border-btn border-btn-sm active" : "border-btn border-btn-sm"}`}
+                                onClick={() => setDateRange("1 Month")}
+                              >
+                                1 Month
+                              </button>
+                              <button
+                                className={`btn ${dateRange === "1 Year" ? "border-btn border-btn-sm active" : "border-btn border-btn-sm"}`}
+                                onClick={() => setDateRange("1 Year")}
+                              >
+                                1 year
+                              </button>
+                            </div>
+
+                          </div>
+                        </div>
                         <div className="dashboard-banner-button">
                           <Link className="fill-btn-lightblue" href="#">
-                            Place Bid
-                          </Link>
-                          <Link className="border-btn" href="/explore-arts">
-                            Explore Now
+                            Connect Wallet
                           </Link>
                         </div>
                       </div>
@@ -184,10 +274,7 @@ const WalletConnectMain = () => {
                         </div>
                         <div className="dashboard-banner-button">
                           <Link className="fill-btn-lightblue" href="#">
-                            Place Bid
-                          </Link>
-                          <Link className="border-btn" href="/explore-arts">
-                            Explore Now
+                            Connect Wallet
                           </Link>
                         </div>
                       </div>

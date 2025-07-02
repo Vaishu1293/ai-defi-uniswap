@@ -268,6 +268,55 @@ export const Time:DropdownDataType[] = [
 
 
 ]
+
+export const crypto: DropdownDataType[] = [
+  {
+    id: 1,
+    option: "FET"
+  },
+  {
+    id: 2,
+    option: "LQTY"
+  },
+  {
+    id: 3,
+    option: "xUSD"
+  },
+  {
+    id: 4,
+    option: "wTAO"
+  },
+  {
+    id: 5,
+    option: "ENS"
+  },
+  {
+    id: 6,
+    option: "USDC"
+  },
+  {
+    id: 7,
+    option: "CLANK"
+  },
+  {
+    id: 8,
+    option: "SOGNI"
+  },
+  {
+    id: 9,
+    option: "cEUR"
+  },
+  {
+    id: 10,
+    option: "WBTC"
+  },
+  {
+    id: 11,
+    option: "OCEAN"
+  }
+];
+
+
 export const dates:DropdownDataType[] = [
   {
       id: 1,
