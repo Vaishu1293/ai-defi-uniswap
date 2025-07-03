@@ -38,7 +38,7 @@ const BuyPage = () => {
     <div className="dashboard-banner-text">
       <div className="dashboard-banner-box">
         <div className="dashboard-banner-box-item">
-          <span>You are buying</span>
+          <span>You are Buying</span>
           <form action="#">
             <NiceSelect
               options={countries}
