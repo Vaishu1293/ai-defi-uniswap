@@ -316,6 +316,19 @@ export const crypto: DropdownDataType[] = [
   }
 ];
 
+export const countries: DropdownDataType[] = [
+  { id: 1, option: "United States" },
+  { id: 2, option: "India" },
+  { id: 3, option: "China" },
+  { id: 4, option: "United Kingdom" },
+  { id: 5, option: "Germany" },
+  { id: 6, option: "Japan" },
+  { id: 7, option: "France" },
+  { id: 8, option: "Canada" },
+  { id: 9, option: "South Korea" },
+  { id: 10, option: "Brazil" }
+];
+
 
 export const dates:DropdownDataType[] = [
   {
