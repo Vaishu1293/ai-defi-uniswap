@@ -1696,7 +1696,7 @@
 	font-weight: 600;
 
 	@media #{$lg,$md,$sm,$xs} {
-		padding-left: 15px;
+		padding-left: 5px;
 	}
 }
 
@@ -1704,12 +1704,14 @@
 	max-width: 55px;
 }
 
-.rank-list-cell.rank-list-cell-artwotrks {
-	max-width: 100px;
+.rank-list-cell.rank-list-cell-artworks {
+	// max-width: 100px;
+	width: auto;
 }
 
 .rank-list-cell.rank-list-cell-market {
-	max-width: 80px;
+	// max-width: 50px;
+	width: auto;
 }
 
 .rank-list-cell.rank-list-cell-volume {
@@ -1717,15 +1719,18 @@
 }
 
 .rank-list-cell.rank-list-cell-hours {
-	max-width: 80px;
+	// max-width: 50px;
+	width: auto;
 }
 
 .rank-list-cell.rank-list-cell-days {
-	max-width: 90px;
+	// max-width: 50px;
+	width: auto;
 }
 
 .rank-list-cell.rank-list-cell-bids {
-	max-width: 55px;
+	// max-width: 50px;
+	width: auto;
 }
 
 .rank-list-cell.rank-list-cell-price {
@@ -1733,11 +1738,12 @@
 }
 
 .rank-list-cell.rank-list-cell-owner {
-	max-width: 200px;
+	// max-width: 200px;
+	width: auto;
 }
 
 .rank-list-cell.rank-list-cell-assets {
-	max-width: 90px;
+	max-width: 50px;
 }
 
 .art-item-single.art-item-single-rank {

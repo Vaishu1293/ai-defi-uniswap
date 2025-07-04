@@ -1,6 +1,6 @@
 "use client"
 import React from "react";
-import { productData } from "@/data/productData";
+import { productData } from "@/data/tokenData";
 //swiper
 import { Navigation, Autoplay, } from 'swiper';
 import { Swiper, SwiperSlide } from 'swiper/react';

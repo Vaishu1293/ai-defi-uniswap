@@ -7,32 +7,39 @@ export interface AppContextType {
   toggleSideMenu: () => void;
   scrollDirection: string;
   setScrollDirection: React.Dispatch<React.SetStateAction<string>> | undefined;
-  inputValue:string;
-  setInputValue:React.Dispatch<React.SetStateAction<string>>;
-  setSideMenuOpen:React.Dispatch<React.SetStateAction<boolean>>;
-  filterType:string;
-  setFilterType:React.Dispatch<React.SetStateAction<string>>;
+  inputValue: string;
+  setInputValue: React.Dispatch<React.SetStateAction<string>>;
+  setSideMenuOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  filterType: string;
+  setFilterType: React.Dispatch<React.SetStateAction<string>>;
 }
 //home-categories type
-export interface categoriesType{
-  id:number;
-  icon:()=> JSX.Element;
-  title:string;
-  description:string;
+export interface categoriesType {
+  id: number;
+  icon: () => JSX.Element;
+  title: string;
+  description: string;
 }
 
 
 //counter_data type
-export interface counterType{
-  id?:number;
-  icon?:()=> JSX.Element;
+export interface counterType {
+  id?: number;
+  icon?: () => JSX.Element;
   countNum?: number;
-  countPlus?:string;
-  description?:string;
+  countPlus?: string;
+  description?: string;
 }
 
-
-
+export interface Token {
+  token: string;
+  symbol: string;
+  price: string;
+  one_h: string;
+  one_d: string;
+  fdv: string;
+  volume: string;
+}
 export interface ProductType {
   id?: number;
   wrapperClass?: string;
@@ -62,12 +69,12 @@ export interface ProductType {
   followed?: string;
   followedNumber?: string;
   follow?: string;
-  day?:number,
-  min?:number
+  day?: number,
+  min?: number
 }
 
-export interface IdType{
-  id:number;
+export interface IdType {
+  id: number;
 }
 
 export interface Activity {
@@ -87,10 +94,10 @@ export interface ActivityDataType {
   activityWrapper: Activity[];
 }
 export interface ActivityNavType {
-  id:number;
-  navId:string;
-  target:string;
-  button:string;
+  id: number;
+  navId: string;
+  target: string;
+  button: string;
 }
 
 // 
@@ -141,15 +148,15 @@ export interface ForumDataType {
 }
 export interface CategoryNavType {
   id: number;
-  navId:string;
-  tabId:string;
-  title:string;
-  itemNumber:string;
-  icon:string;
+  navId: string;
+  tabId: string;
+  title: string;
+  itemNumber: string;
+  icon: string;
 }
 
 export interface MobileMenuItemType {
-  id:number;
+  id: number;
   label: string;
   subMenu: boolean;
   subMenuItems?: {
@@ -160,7 +167,7 @@ export interface MobileMenuItemType {
 }
 
 export interface DashboardMenuItemType {
-  id:number;
+  id: number;
   label: string;
   subMenu: boolean;
   subMenuItems?: {
@@ -175,53 +182,53 @@ interface BidItem {
   img: StaticImageData;
 };
 
-export interface bidsDataType  {
-  id: number; 
-  profilePic: StaticImageData; 
-  name: string; 
+export interface bidsDataType {
+  id: number;
+  profilePic: StaticImageData;
+  name: string;
   artistid: string;
-  date: string; 
-  time: string; 
-  bidsItem: BidItem[]; 
-  status: string; 
-  price: string; 
+  date: string;
+  time: string;
+  bidsItem: BidItem[];
+  status: string;
+  price: string;
   oldPrice: string;
 };
 
 // Define the interface for a submenu item
 interface SubMenuItem {
-  id?: number; 
-  title: string; 
-  link: string; 
+  id?: number;
+  title: string;
+  link: string;
 }
 
 // Define the interface for a mega menu item
 interface MegaMenuItem {
   id: number;
   title: string;
-  link: string; 
-  hasDropdown?: boolean; 
-  submenus?: SubMenuItem[]; 
+  link: string;
+  hasDropdown?: boolean;
+  submenus?: SubMenuItem[];
 }
 
 // Define the interface for the main menu item
 export interface MenuItem {
   id: number;
-  hasDropdown: boolean; 
-  title: string; 
-  link: string; 
-  active?: boolean; 
+  hasDropdown: boolean;
+  title: string;
+  link: string;
+  active?: boolean;
   pluseInco?: boolean;
-  submenus?: SubMenuItem[]; 
-  megaMenu?: boolean; 
+  submenus?: SubMenuItem[];
+  megaMenu?: boolean;
   mega_menus?: MegaMenuItem[];
-  pages?: boolean; 
+  pages?: boolean;
 }
 // Define the interface for the creator profile
 export interface CreatorProfile {
   id: number;
-  coverImage: StaticImageData; 
-  profileImage: StaticImageData; 
+  coverImage: StaticImageData;
+  profileImage: StaticImageData;
   name: string;
   artistId: string;
   create: string;
@@ -247,7 +254,7 @@ export interface TabAccordionData {
   accordion: AccordionItem[];
 }
 // Define the interface for the Top Creator Type
-export interface TopCreatorType{
+export interface TopCreatorType {
   TopCreatorTitle: string;
   TopCreatorImage: StaticImageData,
   TopCreatorCat: string;
@@ -255,7 +262,7 @@ export interface TopCreatorType{
   TopCreatorBtn: string;
 }
 // Define the interface for the Top Seller Type
-export interface TopSellerType{
+export interface TopSellerType {
   TopSellerTitle: string;
   TopSellerImage: StaticImageData,
   TopSellerCat: string;
@@ -263,12 +270,12 @@ export interface TopSellerType{
   TopSellerBtn: string;
 }
 // Define the interface for the work process Type
-export interface WorkProcessDataType{
-  WorkProcessStep:string;
-  WorkProcessImage:StaticImageData;
-  WorkProcessTitle:string;
-  WorkProcessDesc:string;
-  WorkProcessLink:string;
+export interface WorkProcessDataType {
+  WorkProcessStep: string;
+  WorkProcessImage: StaticImageData;
+  WorkProcessTitle: string;
+  WorkProcessDesc: string;
+  WorkProcessLink: string;
 }
 // Define the interface for the wallet connect data Type
 export interface WalletConnectData {
@@ -280,38 +287,38 @@ export interface WalletConnectData {
 
 //Define the interface for the dashboard payment method
 export interface PaymentMethod {
-    id: number;
-    type: string;
-    cardNumber: string | null;
-    expiry: string | null;
-    image: StaticImageData;
+  id: number;
+  type: string;
+  cardNumber: string | null;
+  expiry: string | null;
+  image: StaticImageData;
 }
 
 export interface PaymentMethodEditModalProps {
-    isOpen: boolean;
-    method: PaymentMethod | null;
-    onClose: () => void;
-    onSave: (updatedMethod: PaymentMethod) => void;
+  isOpen: boolean;
+  method: PaymentMethod | null;
+  onClose: () => void;
+  onSave: (updatedMethod: PaymentMethod) => void;
 }
 //Define the interface for the popular collection
-export interface PopulartCollectionType{
-  id:number,
-  popularTitle:string;
-  wrapperClass:string;
-  Imglink:string;
-  titleLink:string;
-  popularImage1:StaticImageData;
-  popularImage2:StaticImageData;
-  popularImage3:StaticImageData;
-  popularBtnNumber:number;
-  popularBtn:string;
-  popularShare:string;
+export interface PopulartCollectionType {
+  id: number,
+  popularTitle: string;
+  wrapperClass: string;
+  Imglink: string;
+  titleLink: string;
+  popularImage1: StaticImageData;
+  popularImage2: StaticImageData;
+  popularImage3: StaticImageData;
+  popularBtnNumber: number;
+  popularBtn: string;
+  popularShare: string;
 }
 //Define the interface for the explore art data
 export interface exploreArtDataType {
   id: number;
-  artImage: StaticImageData; 
-  profileImage: StaticImageData; 
+  artImage: StaticImageData;
+  profileImage: StaticImageData;
   placeBid: string;
   name: string;
   artistId: string;

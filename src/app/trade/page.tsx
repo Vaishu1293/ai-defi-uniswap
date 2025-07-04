@@ -1,17 +1,17 @@
-import WalletConnectMain from "@/components/wallet-connect/WalletConncetMain";
+import TradeMain from "@/components/trade/TradeMain";
 import Wrapper from "@/layout/DefaultWrapper";
 import React from "react";
 
-const WalletContactPage = () => {
+const TradePage = () => {
   return (
     <>
       <Wrapper>
         <main>
-            <WalletConnectMain/>
+            <TradeMain/>
         </main>
       </Wrapper>
     </>
   );
 };
 
-export default WalletContactPage;
+export default TradePage;
