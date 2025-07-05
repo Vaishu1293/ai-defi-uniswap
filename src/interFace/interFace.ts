@@ -40,6 +40,17 @@ export interface Token {
   fdv: string;
   volume: string;
 }
+export interface Pool {
+  pool: string;
+  protocol: string;
+  free_tier: string;
+  tvl: string;
+  pool_apr: string;
+  reward_apr: string;
+  one_vol: string;
+  thirty_vol: string;
+  one_vol_tvl: string;
+}
 export interface ProductType {
   id?: number;
   wrapperClass?: string;
@@ -94,6 +105,18 @@ export interface ActivityDataType {
   activityWrapper: Activity[];
 }
 export interface ActivityNavType {
+  id: number;
+  navId: string;
+  target: string;
+  button: string;
+}
+
+export interface ExploreDataType {
+  id: number;
+  tabId: string;
+  ariaLabelledby: string;
+}
+export interface ExploreNavType {
   id: number;
   navId: string;
   target: string;
