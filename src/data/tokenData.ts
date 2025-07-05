@@ -902,4 +902,4 @@ export const tokenData: Token[] = [
     "fdv": "$10000M",
     "volume": "$1000M"
   }
-]
+];

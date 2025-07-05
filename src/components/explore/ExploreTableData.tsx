@@ -6,25 +6,17 @@ import { Token } from "@/interFace/interFace";
 import useFlashlightAnimation from "@/hooks/useFlashlightAnimation";
 interface propsType {
   token_data: Token;
-  key: number;
+  index: number;
 }
-// token: string;
-//   symbol: string;
-//   price: string;
-//   one_h: string;
-//   one_d: string;
-//   fdv: string;
-//   volume: string;
-const ExploreTableData = ({ token_data, key }: propsType) => {
-  // distructure items
+const ExploreTableData = ({ token_data, index }: propsType) => {
   const { token, symbol, price, one_h, one_d, fdv, volume } =
     token_data;
-  const id = key;
+  const id = index;
     useFlashlightAnimation();
   return (
     <div className="rank-list-row light-effect">
       <div className="rank-list-cell rank-list-cell-sl">
-        <span></span>
+        <span>{id.toString().padStart(2, "0")}</span>
       </div>
       <div className="rank-list-cell rank-list-cell-owner">{token} {symbol}</div>
       <div className="rank-list-cell rank-list-cell-bids">{price}</div>
@@ -37,7 +29,6 @@ const ExploreTableData = ({ token_data, key }: propsType) => {
           <div className="art-item-wraper">
             <div className="art-item-inner">
               <div className="art-item-img pos-rel">
-                {id}
                 <Link href={`/art-details/${id}`}>
                   <Image
                     width={50}

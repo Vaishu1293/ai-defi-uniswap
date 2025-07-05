@@ -1668,16 +1668,16 @@
 			margin-bottom: 0;
 		}
 
-		counter-increment: rank-serial;
+		// counter-increment: rank-serial;
 	}
 
 	.rank-list-cell-sl {
 		span {
 			position: relative;
 
-			&:before {
-				content: counter(rank-serial, decimal-leading-zero);
-			}
+			// &:before {
+			// 	content: counter(rank-serial, decimal-leading-zero);
+			// }
 		}
 	}
 
