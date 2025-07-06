@@ -4,6 +4,7 @@ import useFlashlightAnimation from "@/hooks/useFlashlightAnimation";
 import BuyPage from "./BuyPage";
 import SellPage from "./SellPage";
 import LimitPage from "./LimitPage";
+import Breadcrumbs from "@/utils/Breadcrumbs";
 
 const TradeMain = () => {
   useFlashlightAnimation();
@@ -11,6 +12,7 @@ const TradeMain = () => {
   return (
     <main>
       <ThemeChanger />
+      <Breadcrumbs breadcrumbTitle="Trade" breadcrumbSubTitle="Trade" />
       <section className="connect-wallet-area pt-0 pb-40">
         <div className="container">
           <div className="connect-wallet-wrapper mb-2">

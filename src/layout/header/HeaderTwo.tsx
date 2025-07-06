@@ -2,8 +2,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { useTheme } from "next-themes";
-import profile4 from "../../../public/assets/img/profile/profile1.jpg";
-import Image from "next/image";
 import SidebarMenuSection from "../sidebar/SidebarMenuSection";
 import CategoryFilter from "../sidebar/CategoryFilter";
 
@@ -60,7 +58,7 @@ const HeaderTwo = () => {
                         Prepare wallet
                       </Link>
                     </div>
-                    <div className="profile-item profile-item-header ml-20 d-md-inline-block pos-rel">
+                    {/* <div className="profile-item profile-item-header ml-20 d-md-inline-block pos-rel">
                       <div
                         className={`profile-img pos-rel ${isActive13 ? "show-element" : ""
                           }`}
@@ -91,7 +89,7 @@ const HeaderTwo = () => {
                           <i className="fas fa-check"></i>
                         </div>
                       </div>
-                    </div>
+                    </div> */}
                     <div className="mode-switch-wrapper my_switcher setting-option home3-mode-switch ml-20">
                       <input type="checkbox" className="checkbox" id="chk" />
                       <label className="label" htmlFor="chk">

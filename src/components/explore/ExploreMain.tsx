@@ -125,10 +125,6 @@ const ExploreMain = () => {
                               </div>
                             </div>
                           </div>
-
-                          <div className="more-activity-btn mb-30 text-center">
-                            <button className="fill-btn">Load More</button>
-                          </div>
                         </div>
                       ))}
                     </div>

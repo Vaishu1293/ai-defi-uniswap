@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import logoOne from "../../../public/assets/img/logo/logo.png"
 import logoTwo from "../../../public/assets/img/logo/logo-2.png"
-import logoThree from "../../../public/assets/img/profile/profile1.jpg"
 import useSticky from '@/hooks/useSticky';
 import useGlobalContext from '@/hooks/use-context';
 import Image from 'next/image';
@@ -46,34 +45,6 @@ const HeaderOne = ({ HeaderStatic }: any) => {
                            </form>
                            <div className="header-btn ml-20 d-none d-xxl-inline-block">
                               <Link className="fill-btn" href="/wallet-connect">Connect Wallet</Link>
-                           </div>
-                           <div className="profile-item profile-item-header ml-20 d-md-inline-block pos-rel">
-                              <div className={`profile-img pos-rel ${isActive11 ? "show-element" : ""}`} onClick={handleToggle11}>
-                                 <div className="profile-action">
-                                    <div className='profile-action-menu-wrapper'>
-                                       <div className='profile-header-wrapper'>
-                                          <Image src={logoThree} priority alt="profile-img" />
-                                          <div className='profile-content'>
-                                             <h4 className='artist-name'>Jenny Wilson</h4>
-                                             <span>Founder</span>
-                                          </div>
-                                       </div>
-                                       <ul>
-                                          <li><Link href="/dashboard"><i className="flaticon-home"></i>Dashboard</Link></li>
-                                          <li><Link href="/profile"><i className="flaticon-account"></i>Profile</Link></li>
-                                          <li><Link href="/live-bids"><i className="menu-icon flaticon-money-bag"></i>Live Bids</Link></li>
-                                          <li><Link href="/my-wallet"><i className="menu-icon flaticon-wallet-1"></i>My Wallet</Link></li>
-                                          <li><Link href="/my-collection"><i className="menu-icon flaticon-add-2"></i>My Collection</Link></li>
-                                          <li><Link href="/payment-method"><i className="menu-icon flaticon-settings"></i>Settings</Link></li>
-                                          <li><Link href="/login"><i className="menu-icon flaticon-logout"></i>Logout</Link></li>
-                                       </ul>
-                                    </div>
-                                 </div>
-                                 <Image src={logoThree} priority alt="profile-img" />
-                                 <div className="profile-verification verified">
-                                    <i className="fas fa-check"></i>
-                                 </div>
-                              </div>
                            </div>
                            <div className="menu-bar d-lg-none ml-20">
                               <Link className="side-toggle" href="" onClick={toggleSideMenu}>
