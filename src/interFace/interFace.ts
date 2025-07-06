@@ -284,6 +284,11 @@ export interface TopCreatorType {
   TopCreatorNumber: string;
   TopCreatorBtn: string;
 }
+export interface ExploreCardType {
+  cardTitle: string;
+  cardAmount: string;
+  cardStats: string;
+}
 // Define the interface for the Top Seller Type
 export interface TopSellerType {
   TopSellerTitle: string;

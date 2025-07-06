@@ -3,16 +3,17 @@
 import React, { useEffect, useState } from "react";
 import ThemeChanger from "../home/ThemeChanger";
 import Breadcrumbs from "@/utils/Breadcrumbs";
-import ExploreCategorySlider from "@/elements/sliders/ExploreCategorySlider";
 import Pagination from "@/utils/Pagination";
 import ExploreTableTitle from "./ExploreTableTitle";
 import ExploreTableData from "./ExploreTableData";
 import PoolsTableTitle from "./PoolsTableTitle";
 import PoolsTableData from "./PoolsTableData";
 import NavContent from "./NavContent";
+import { ExploreCard } from "@/data/explore-card-data";
 import { exploreData } from "@/data/explore-data";
 import { tokenData } from "@/data/tokenData";
 import { poolData } from "@/data/poolData";
+import ExploreCategorySlider from "@/elements/sliders/ExploreCategorySlider";
 
 const ExploreMain = () => {
   const [activeTab, setActiveTab] = useState(1); // 1 = Tokens, 2 = Pools
@@ -44,7 +45,13 @@ const ExploreMain = () => {
         <div className="container">
           <div className="row wow fadeInUp">
             <div className="col-lg-12">
-              <ExploreCategorySlider />
+                <div>
+                {ExploreCard.length && (
+                  <div className="row wow fadeInUp">
+                    <ExploreCategorySlider/>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
 

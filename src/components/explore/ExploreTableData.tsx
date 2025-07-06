@@ -3,6 +3,7 @@ import React from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { Token } from "@/interFace/interFace";
+import imgTwo from "../../../public/assets/img/svg-icon/014-artwork.svg";
 import useFlashlightAnimation from "@/hooks/useFlashlightAnimation";
 interface propsType {
   token_data: Token;
@@ -34,7 +35,7 @@ const ExploreTableData = ({ token_data, index }: propsType) => {
                     width={50}
                     height={50}
                     style={{ width: "100%", height: "auto" }}
-                    src=""
+                    src={imgTwo}
                     alt="art-img"
                   />
                 </Link> 
