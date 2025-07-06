@@ -14,13 +14,20 @@ import { exploreData } from "@/data/explore-data";
 import { tokenData } from "@/data/tokenData";
 import { poolData } from "@/data/poolData";
 import ExploreCategorySlider from "@/elements/sliders/ExploreCategorySlider";
+import TransactionTableTitle from "./TransactionTableTitle";
+import TransactionTableData from "./TransactionTableData";
+import { transactionData } from "@/data/transactionData";
 
 const ExploreMain = () => {
   const [activeTab, setActiveTab] = useState(1); // 1 = Tokens, 2 = Pools
   const [currentPage, setCurrentPage] = useState(1);
   const perPage = 5;
 
-  const dataSource = activeTab === 1 ? tokenData : poolData;
+  const dataSource = activeTab === 1
+    ? tokenData
+    : activeTab === 2
+      ? poolData
+      : transactionData;
   const totalPages = Math.ceil(dataSource.length / perPage);
   const startIndex = (currentPage - 1) * perPage;
   const currentData = dataSource.slice(startIndex, startIndex + perPage);
@@ -45,10 +52,10 @@ const ExploreMain = () => {
         <div className="container">
           <div className="row wow fadeInUp">
             <div className="col-lg-12">
-                <div>
+              <div>
                 {ExploreCard.length && (
                   <div className="row wow fadeInUp">
-                    <ExploreCategorySlider/>
+                    <ExploreCategorySlider />
                   </div>
                 )}
               </div>
@@ -59,7 +66,7 @@ const ExploreMain = () => {
             <div className="container">
               <div className="activity-wrapper mb-40">
                 <div className="activity-tab">
-                  
+
                   {/* Tab Navigation */}
                   <div className="activity-tab-nav wow fadeInUp">
                     <NavContent activeTab={activeTab} setActiveTab={setActiveTab} />
@@ -80,17 +87,30 @@ const ExploreMain = () => {
                             <div className="rank-list-container wow fadeInUp">
                               <div className="rank-list-wrapper mb-20">
 
-                                {activeTab === 1 ? <ExploreTableTitle /> : <PoolsTableTitle />}
+                                {/* Tab Table Titles */}
+                                {activeTab === 1 && <ExploreTableTitle />}
+                                {activeTab === 2 && <PoolsTableTitle />}
+                                {activeTab === 3 && <TransactionTableTitle />}
 
                                 <div className="rank-list-items">
                                   {currentData.map((data, i) => {
                                     const serial = startIndex + i + 1;
-                                    return activeTab === 1 ? (
-                                      <ExploreTableData index={serial} token_data={data} key={i} />
-                                    ) : (
-                                      <PoolsTableData index={serial} pool_data={data} key={i} />
+
+                                    return (
+                                      <div key={serial}>
+                                        {activeTab === 1 && (
+                                          <ExploreTableData index={serial} token_data={data} />
+                                        )}
+                                        {activeTab === 2 && (
+                                          <PoolsTableData index={serial} pool_data={data} />
+                                        )}
+                                        {activeTab === 3 && (
+                                          <TransactionTableData transaction_data={data} />
+                                        )}
+                                      </div>
                                     );
                                   })}
+
                                 </div>
                               </div>
                             </div>
@@ -118,6 +138,7 @@ const ExploreMain = () => {
               </div>
             </div>
           </div>
+
 
         </div>
       </div>

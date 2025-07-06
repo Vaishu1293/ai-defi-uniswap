@@ -30,7 +30,6 @@ export interface counterType {
   countPlus?: string;
   description?: string;
 }
-
 export interface Token {
   token: string;
   symbol: string;
@@ -39,6 +38,15 @@ export interface Token {
   one_d: string;
   fdv: string;
   volume: string;
+}
+
+export interface Transaction {
+  time: string;
+  transaction: string;
+  usd: string;
+  from_amount: string;
+  to_amount: string;
+  wallet: string;
 }
 export interface Pool {
   pool: string;

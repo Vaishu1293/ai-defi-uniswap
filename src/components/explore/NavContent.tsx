@@ -1,5 +1,5 @@
 "use client";
-import { Time } from "@/data/nice-select-data";
+import { CryptoNetwork, Protocol, TradeVolume } from "@/data/nice-select-data";
 import NiceSelect from "@/elements/niceSelect/NiceSelect";
 import React from "react";
 
@@ -9,7 +9,7 @@ interface NavContentProps {
 }
 
 const NavContent: React.FC<NavContentProps> = ({ activeTab, setActiveTab }) => {
-  const selectHandler = () => {};
+  const selectHandler = () => { };
 
   return (
     <>
@@ -35,21 +35,71 @@ const NavContent: React.FC<NavContentProps> = ({ activeTab, setActiveTab }) => {
           >
             <span className="activity-nav-button">Pools</span>
           </button>
+          <button
+            className={`nav-link ${activeTab === 3 ? "active" : ""}`}
+            id="nav-transactions-tab"
+            type="button"
+            role="tab"
+            aria-selected={activeTab === 3}
+            onClick={() => setActiveTab(3)}
+          >
+            <span className="activity-nav-button">Transactions</span>
+          </button>
         </div>
 
         <div className="filter-by-sale d-flex mb-30">
-          <div className="select-category-title">
-            <i className="flaticon-filter"></i> Filters by
-          </div>
+
+          {/* Always show Network */}
           <div>
             <NiceSelect
-              options={Time}
+              options={CryptoNetwork}
               defaultCurrent={0}
               onChange={selectHandler}
               name=""
               className="sale-category-select"
             />
           </div>
+
+          {/* Search Input Field */}
+          <form action="#" className="filter-search-input header-search d-none d-xl-inline-block">
+            <input
+              type="text"
+              placeholder={
+                activeTab === 1
+                  ? "Search tokens"
+                  : activeTab === 2
+                  ? "Search pools"
+                  : "Search transactions"
+              }
+            />
+            <button><i className="fal fa-search"></i></button>
+          </form>
+
+          {/* Tab-specific dropdowns */}
+          {activeTab === 1 && (
+            <div>
+              <NiceSelect
+                options={TradeVolume}
+                defaultCurrent={0}
+                onChange={selectHandler}
+                name=""
+                className="sale-category-select"
+              />
+            </div>
+          )}
+
+          {activeTab === 2 && (
+            <div>
+              <NiceSelect
+                options={Protocol}
+                defaultCurrent={0}
+                onChange={selectHandler}
+                name=""
+                className="sale-category-select"
+              />
+            </div>
+          )}
+
         </div>
       </nav>
     </>

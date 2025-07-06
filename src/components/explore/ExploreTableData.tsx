@@ -20,11 +20,11 @@ const ExploreTableData = ({ token_data, index }: propsType) => {
         <span>{id.toString().padStart(2, "0")}</span>
       </div>
       <div className="rank-list-cell rank-list-cell-owner">{token} {symbol}</div>
-      <div className="rank-list-cell rank-list-cell-bids">{price}</div>
+      <div className="rank-list-cell rank-list-cell-market">{price}</div>
       <div className="rank-list-cell rank-list-cell-hours">{one_h}</div>
       <div className="rank-list-cell rank-list-cell-days">{one_d}</div>
-      <div className="rank-list-cell rank-list-cell-bids">{fdv}</div>
-      <div className="rank-list-cell rank-list-cell-bids">{volume}</div>
+      <div className="rank-list-cell rank-list-cell-market">{fdv}</div>
+      <div className="rank-list-cell rank-list-cell-market">{volume}</div>
       <div className="rank-list-cell rank-list-cell-artwotrks">
         <div className="art-item-single art-item-single-rank">
           <div className="art-item-wraper">
