@@ -39,7 +39,7 @@ const ExploreMain = () => {
   return (
     <>
       <ThemeChanger />
-      <Breadcrumbs breadcrumbTitle="Item Ranking" breadcrumbSubTitle="Item Ranking" />
+      <Breadcrumbs breadcrumbTitle="Explore" breadcrumbSubTitle="Explore" />
 
       <div className="art-ranking-area pb-10">
         <div className="container">
